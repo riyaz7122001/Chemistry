@@ -2,9 +2,11 @@ const {connection} = require("./database/db");
 const express = require('express');
 const app = express();
 
-
-const user = require("./routes/user");
-// const user = require("./routes/user");
+const student = require("./routes/student");
+const records = require("./routes/records");
+const breakage = require("./routes/breakage");
+const apparatus = require("./routes/apparatus");
+const junior = require("./routes/junior");
 
 app.get('/', (req, res) => {
 
@@ -13,4 +15,8 @@ app.get('/', (req, res) => {
 
 connection();
 
-app.use("/api/auth",user)
+app.use("/api/auth",student);
+app.use("/api/records",records);
+app.use("/api/breakage",breakage);
+app.use("/api/apparatus",apparatus);
+app.use("/api/junior",junior);
